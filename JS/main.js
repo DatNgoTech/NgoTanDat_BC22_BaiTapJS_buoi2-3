@@ -124,6 +124,7 @@ var PriceAdult = document.getElementById("txtPriceAdult").value;
 var PriceKid =  document.getElementById("txtPriceKid").value;
 var AdultTicket= document.getElementById("txtAdultTicket").value;
 var KidTicket = document.getElementById("txtKidTicket").value;
+var totalVe = AdultTicket + KidTicket;
 
 console.log(tenPhim, PriceAdult, PriceKid, AdultTicket, KidTicket );
 
@@ -139,8 +140,19 @@ var loiNhuan = doanhThu - tuThien;
 var currentFormat = new Intl.NumberFormat('vn-VN');
 var tienVND = currentFormat.format(loiNhuan);
 
-console.log(doanhThu, tuThien , loiNhuan);
+// console.log(doanhThu, tuThien , loiNhuan);
 
-console.log(tienVND +" VND")
+// console.log(tienVND +" VND")
+// tạo thẻ div
+var ketQua = "<div class='alert alert-success'>";
+ketQua +=             "<p>Tên Phim : " + tenPhim + "</p>"
+ketQua +=             "<p>Số vé đã bán : " + totalVe + "</p>"
+ketQua +=             "<p>Doanh Thu : " + currentFormat.format(doanhThu) + "</p>"
+ketQua +=             "<p>Trích 10% từ thiện</p>"
+ketQua +=             "<p>Số tiền từ thiện : " + tuThien + "</p>"
+ketQua +=             "<p>Số tiền lợi nhuận : " + tienVND + "</p>"
+ketQua += "</div>";
+
+document.getElementById("footerLoiNhuan").innerHTML = ketQua;
 };
 
